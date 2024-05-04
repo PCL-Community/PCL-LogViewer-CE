@@ -1,13 +1,13 @@
 CC=gcc
-CFLAGS=-Wall -Wextra -std=c99
+CFLAGS=-Wall -Wextra
 
-all: Main
+all: Main.exe
 
-Main: Main.o
-	$(CC) $(CFLAGS) -o Main Main.o
+Main.exe: Main.o
+	$(CC) $(CFLAGS) -o Main.exe Main.o
 
 Main.o: Main.c
-	$(CC) $(CFLAGS) -c Main.c
+	$(CC) $(CFLAGS) -c Main.c -DWIN32
 
 clean:
-	rm -f Main Main.o
+	del Main.exe Main.o
