@@ -1,7 +1,7 @@
 objs := main.o sub.o
 
 test : $(objs)
-gcc -o main.c $^
+ gcc -o main.c $^
 
 # 需要判断是否存在依赖文件
 # .main.o.d .sub.o.d
@@ -14,10 +14,10 @@ ifneq ($(dep_files),)
 endif
 
 %.o : %.c
-gcc -Wp,-MD,.$@.d -c -o $@ $<
+ gcc -Wp,-MD,.$@.d -c -o $@ $<
 
 clean:
-rm *.o main.c -f
+ rm *.o test -f
 
 distclean:
-rm $(dep_files) *.o main.c -f
+ rm $(dep_files) *.o test -f
