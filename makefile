@@ -1,4 +1,4 @@
-objs := main.o sub.o
+objs := main.o
 
 test : $(objs)
 	gcc -o test $^
