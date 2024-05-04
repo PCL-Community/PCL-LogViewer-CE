@@ -1,13 +1,13 @@
-CC=gcc
-CFLAGS=-Wall -Wextra
+TAR = Main.c
+OBJ = program1.o cube.o main.o
+CC := gcc
+RMRF := rm 
 
-all: Main.exe
+$(TAR):$(OBJ)
+	$(CC) $^ -o $@
+%.o:%.c
+	$(CC) -c $^ -o $@
 
-Main.exe: Main.o
-	$(CC) $(CFLAGS) -o Main.exe Main.o
-
-Main.o: Main.c
-	$(CC) $(CFLAGS) -c Main.c -DWIN32
-
-clean:
-	del Main.exe Main.o
+.PHONY:
+cleanall:
+	$(RMRF) $(OBJ)
