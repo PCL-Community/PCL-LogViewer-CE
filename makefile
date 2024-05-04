@@ -6,4 +6,4 @@ Main.o: Main.c
 
 .PHONY: cleanall
 cleanall:
-	rm -f Main.exe Main.o
+	rm -f Main.o
