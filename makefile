@@ -6,7 +6,7 @@ RMRF := rm
 $(TAR):$(OBJ)
 	$(CC) $^ -o $@
 %.o:%.c
-	$(CC) -c $^ -o $@
+	$(CC) -c Main.c -o $@
 
 .PHONY:
 cleanall:
