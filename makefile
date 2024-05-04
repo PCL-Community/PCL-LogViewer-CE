@@ -10,4 +10,4 @@ main.o:Main.c
 
 .PHONY:
 cleanall:
- rm main.o
+	rm main.o
