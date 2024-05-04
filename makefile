@@ -1,7 +1,7 @@
 objs := main.o
 
 test : $(objs)
-	gcc Main.c -o test $^
+	gcc Main.c -o $^
 
 # 需要判断是否存在依赖文件
 # .main.o.d .sub.o.d
