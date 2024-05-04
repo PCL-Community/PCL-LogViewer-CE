@@ -1,23 +1,13 @@
-objs := main.o
+TAR = test
+OBJ = program1.o cube.o main.o
+CC := gcc
+RMRF := rm 
 
-test : $(objs)
-	gcc Main.c -o $^
-
-# 需要判断是否存在依赖文件
-# .main.o.d .sub.o.d
-dep_files := $(foreach f, $(objs), .$(f).d)
-dep_files := $(wildcard $(dep_files))
-
-# 把依赖文件包含进来
-ifneq ($(dep_files),)
-include $(dep_files)
-endif
-
-%.o : %.c
-	gcc -Wp,-MD,.$@.d -c -o $@ $<
+$(TAR):$(OBJ)
+	$(CC) $^ -o $@
+%.o:%.c
+	$(CC) -c $^ -o $@
 
 .PHONY:
-clean:
-	rm *.o test -f
-distclean:
-	rm $(dep_files) *.o test -f
+cleanall:
+	$(RMRF) $(OBJ)
