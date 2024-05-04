@@ -1,13 +1,13 @@
-TAR = Main.c
-OBJ = main.o
-CC := gcc
-RMRF := rm 
+CC=gcc
+CFLAGS=-Wall -Wextra -std=c99
 
-$(TAR):$(OBJ)
-	$(CC) $^ -o $@
-%.o:%.c
-	$(CC) -c Main.c -o $@
+all: Main
 
-.PHONY:
-cleanall:
-	$(RMRF) $(OBJ)
+Main: Main.o
+	$(CC) $(CFLAGS) -o Main Main.o
+
+Main.o: Main.c
+	$(CC) $(CFLAGS) -c Main.c
+
+clean:
+	rm -f Main Main.o
