@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: PCL-Community/PCL2-LogViewer-CE@latest
     - name: configure
       run: ./configure
     - name: make
