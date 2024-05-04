@@ -1,13 +1,13 @@
 TAR = Main.c
 OBJ = main.o
 CC := gcc
-RMRF := rm 
 
-$(TAR):$(OBJ)
-	$(CC) $^ -o $@
-%.o:%.c
-	$(CC) -c $^ -o $@
+Main.c:main.o
+	gcc Main.c -o main.o
+
+main.o:Main.c
+	gcc -c main.o -o Main.c
 
 .PHONY:
 cleanall:
-	$(RMRF) $(OBJ)
+ rm main.o
