@@ -1,8 +1,4 @@
-TAR = Main.c
-OBJ = main.o
-CC := gcc
-
-Main.c:main.o
+Main.exe:main.o
 	gcc Main.c -o main.o
 
 main.o:Main.c
