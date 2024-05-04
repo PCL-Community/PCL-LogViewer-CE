@@ -10,14 +10,14 @@ dep_files := $(wildcard $(dep_files))
 
 # 把依赖文件包含进来
 ifneq ($(dep_files),)
-	include $(dep_files)
+include $(dep_files)
 endif
 
 %.o : %.c
 	gcc -Wp,-MD,.$@.d -c -o $@ $<
 
+.PHONY:
 clean:
 	rm *.o test -f
-
 distclean:
 	rm $(dep_files) *.o test -f
