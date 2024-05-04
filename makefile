@@ -1,4 +1,4 @@
-TAR = main.c
+TAR = Main.c
 OBJ = main.o
 CC := gcc
 RMRF := rm 
