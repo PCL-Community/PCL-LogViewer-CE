@@ -1,5 +1,5 @@
-TAR = test
-OBJ = program1.o cube.o main.o
+TAR = main.c
+OBJ = main.o
 CC := gcc
 RMRF := rm 
 
