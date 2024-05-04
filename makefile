@@ -1,17 +1,9 @@
-CC=gcc
-CFLAGS=-Wall -Wextra -DWIN32
-LDFLAGS=-mwindows
-
-all: Main.exe
-
-Main.exe: Main.o resource.o
-	$(CC) $(CFLAGS) -o Main.exe Main.o resource.o $(LDFLAGS)
+Main.exe: Main.o
+	gcc -o Main.exe Main.o
 
 Main.o: Main.c
-	$(CC) $(CFLAGS) -c Main.c
+	gcc -c -o Main.o Main.c
 
-resource.o: resource.rc
-	windres resource.rc -o resource.o
-
-clean:
-	del Main.exe Main.o resource.o
+.PHONY: cleanall
+cleanall:
+	rm -f Main.exe Main.o
