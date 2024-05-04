@@ -1,9 +1,14 @@
+CC=gcc
+CFLAGS=-Wall -Wextra -DWIN32
+LDFLAGS=-mwindows
+
+all: Main.exe
+
 Main.exe: Main.o
-	gcc Main.o -o Main.exe
+	$(CC) $(CFLAGS) -o Main.exe Main.o $(LDFLAGS)
 
 Main.o: Main.c
-	gcc -c Main.c -o Main.o
+	$(CC) $(CFLAGS) -c Main.c
 
-.PHONY: cleanall
-cleanall:
-	rm -f Main.o
+clean:
+	del Main.exe Main.o
