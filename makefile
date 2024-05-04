@@ -1,23 +1,9 @@
-objs := main.o sub.o
+main:Main.o
+ gcc main.o -o main
 
-test : $(objs)
- gcc -o test $^
+main.o:main.c
+	gcc -c main.c -o main.o
 
-# 需要判断是否存在依赖文件
-# .main.o.d .sub.o.d
-dep_files := $(foreach f, $(objs), .$(f).d)
-dep_files := $(wildcard $(dep_files))
-
-# 把依赖文件包含进来
-ifneq ($(dep_files),)/
- include $(dep_files)/
-endif
-
-%.o : %.c
- gcc -Wp,-MD,.$@.d -c -o $@ $<
-
-clean:
- rm *.o test -f
-
-distclean:
- rm $(dep_files) *.o test -f
+.PHONY:
+clean_all:
+	rm main.o
