@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: PCL-Community/PCL2-LogViewer-CE@latest
+    - uses: PCL-Community/PCL2-LogViewer-CE@main
     - name: configure
       run: ./configure
     - name: make
