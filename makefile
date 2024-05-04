@@ -1,9 +1,9 @@
-Main.exe:main.o
-	gcc Main.c -o main.o
+Main.exe: Main.o
+	gcc Main.o -o Main.exe
 
-main.o:Main.c
-	gcc -c main.o -o Main.exe
+Main.o: Main.c
+	gcc -c Main.c -o Main.o
 
-.PHONY:
+.PHONY: cleanall
 cleanall:
-	rm main.o
+	rm -f Main.exe Main.o
